@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            const stacks = [
+                'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD'
+            ]
+
+            function linkEnter() {
+                document.querySelector("#nunc_stack_number").addEventListener("keyup", event => {
+                    if (event.key !== "Enter") return
+                    document.querySelector("#submit_num").click()
+                    event.preventDefault()
+                })
+            }
+
+            function backCalc() {
+                var input = document.getElementById("nunc_stack_number").value
+
+                var length = input.length
+                var indexNum = length == 3 ? 1 : 2
+                var indexStr = indexNum
+
+                var letter = input.substring(0, indexStr).toUpperCase()
+                var number = input.substring(indexNum)
+                var pos = 20 * stacks.indexOf(letter)
+
+                document.getElementById("back_calc_display").value = String(Number(pos) + Number(number))
+            }
+        </script>
+    </head>
+    <body onload="linkEnter()">
+        <h2>Nunc Stack Number Back Calculator</h2>
+        <h3>Ensure you include '0' if entering a nunc stack number less than 10 (ex. A09)</h3>
+        <br>
+        <label for="nunc_stack_number">Nunc stack number:</label>
+        <input type="text" id="nunc_stack_number" name="nunc_stack_number">
+        <br>
+        <button id="submit_num" onclick="backCalc()">Submit</button>
+        <br><br>
+        <label for="back_calc_display">Corresponding plate number:</label>
+        <input type="text" id="back_calc_display" readonly></label>
+    </body>
+</html>
