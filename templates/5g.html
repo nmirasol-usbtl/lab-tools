@@ -18,11 +18,10 @@
                 var input = document.getElementById("nunc_stack_number").value
 
                 var length = input.length
-                var indexNum = length == 3 ? 1 : 2
-                var indexStr = indexNum
+                var index = length == 3 ? 1 : 2
 
-                var letter = input.substring(0, indexStr).toUpperCase()
-                var number = input.substring(indexNum)
+                var letter = input.substring(0, index).toUpperCase()
+                var number = input.substring(index)
                 var pos = 20 * stacks.indexOf(letter)
 
                 document.getElementById("back_calc_display").value = String(Number(pos) + Number(number))
